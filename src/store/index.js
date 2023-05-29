@@ -1,0 +1,20 @@
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from "redux-persist";
+import { combineReducers } from 'redux';
+import storage from "redux-persist/lib/storage";
+import permissionSlice from './permission/permissionSlice';
+const reducers = combineReducers({
+    permission: permissionSlice
+})
+const persistConfig = {
+    key: "root", // 储存的标识名
+    storage, // 储存方式
+    whitelist: ["login"], //白名单 模块参与缓存
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+const store = configureStore({
+    reducer: persistedReducer,
+})
+const persistor = persistStore(store);
+export { store, persistor };
