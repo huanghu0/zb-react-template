@@ -1,6 +1,2 @@
-import request from '../index'
-export function getPermissionInfo(){
-    return request({
-        url:'/perminfo'
-    })
-}
+import { fetchGet } from '../index'
+export const getPermissionInfo = (params = {}) => fetchGet('/perminfo',params)
