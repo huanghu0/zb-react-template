@@ -1,12 +1,16 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useRoutes } from "react-router-dom";
 import { useDispatch,useSelector } from 'react-redux';
 import { getPermissionInfo } from './services/permission/index';
-import { permissionAction } from './store/permission/permissionSlice'
+import { permissionAction } from './store/permission/permissionSlice';
+import routes from '@/router/index';
 import styles from '@/assets/scss/app.scss';
 
 
 function App() {
   const dispatch = useDispatch()
+  const [rout,setRout] = useState(routes)
+  const element = useRoutes(rout)
   const fetchPermission =  useCallback( async () => {
     const res = await getPermissionInfo()
     const { menu,module,page,project } = res
@@ -22,7 +26,7 @@ function App() {
   },[])
   return (
     <>
-      哈哈哈哈
+      { element }
     </>
   );
 }
