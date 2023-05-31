@@ -10,7 +10,6 @@ export const permissionSlice  = createSlice({
   },
   reducers: {
     permissionAction: (state,perminfo) => {
-      console.log(perminfo,'perminfo')
       state.project = perminfo.payload.project
       state.menu = perminfo.payload.menu
       state.page = perminfo.payload.page

@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRoutes } from "react-router-dom";
 import { useDispatch,useSelector } from 'react-redux';
-import { getPermissionInfo } from './services/permission/index';
-import { permissionAction } from './store/permission/permissionSlice';
+import { getPermissionInfo } from '@/services/permission/index';
+import { permissionAction } from '@/store/permission/permissionSlice';
+import Header from '@/components/header/header';
 import routes from '@/router/index';
-import styles from '@/assets/scss/app.scss';
+import '@/assets/scss/app.scss';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   },[])
   return (
     <>
+      <Header he={'sdf'}><span>123</span></Header>
       { element }
     </>
   );

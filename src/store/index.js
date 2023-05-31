@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 import storage from "redux-persist/lib/storage";
 import permissionSlice from './permission/permissionSlice';
 const reducers = combineReducers({
-    permission: permissionSlice
+  permission: permissionSlice
 })
 const persistConfig = {
     key: "root", // 储存的标识名
@@ -15,6 +15,10 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 const store = configureStore({
     reducer: persistedReducer,
+    middleware: (getDefaultNormalizer) => getDefaultNormalizer({
+      serializableCheck: false
+    })
 })
+store.subscribe(() => console.log(store.getState(),'store'))
 const persistor = persistStore(store);
 export { store, persistor };
