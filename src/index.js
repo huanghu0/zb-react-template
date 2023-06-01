@@ -5,15 +5,18 @@ import App from './App';
 import { store,persistor } from '@/store/index';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { LocationWatcher } from './hooks/LocationWatcher'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <PersistGate loading={ null } persistor={ persistor }>
       <BrowserRouter>
-        <React.Suspense>
-          <App></App>
-        </React.Suspense>      
+        <LocationWatcher>
+          <React.Suspense>
+            <App></App>
+          </React.Suspense>
+        </LocationWatcher>
       </BrowserRouter>
     </PersistGate>
   </Provider>

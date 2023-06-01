@@ -84,18 +84,6 @@
             "orderBy": 6
         },
         {
-            "oid": 1006,
-            "firststaff": "180920",
-            "laststaff": "180920",
-            "oitime": null,
-            "outime": null,
-            "moduleName": "旧业务概览",
-            "moduleDesc": "",
-            "projectId": 10,
-            "moduleUrl": "/business/overview",
-            "orderBy": 7
-        },
-        {
             "oid": 1007,
             "firststaff": "180920",
             "laststaff": "180920",
@@ -797,6 +785,23 @@
             "pageUrl": "/aba/event",
             "projectId": 10
         }
-        ]        
+        ],
+        "userInfo":{
+          "oid": 4,
+          "firststaff": "180920",
+          "laststaff": "180920",
+          "oitime": "2021-12-06 15:00:21",
+          "outime": "2023-05-18 14:01:04",
+          "staffNo": "180920",
+          "userName": "王凡",
+          "mail": null,
+          "phoneNumber": null,
+          "userType": 2,
+          "jiraName": "jingwei",
+          "departmentId": 1668696,
+          "identity": 4,
+          "watermarkUrl": "http://172.31.68.35:9066/bd-bi-manager/user/readWatermark/180920.png",
+          "deptFullName": "业务支持中心集团分析部/技术研发部/业务研发组"
+        }                
     }
 }

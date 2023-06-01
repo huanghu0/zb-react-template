@@ -141,3 +141,8 @@
     margin-left: 5px;
   }
 }
+.main-content{
+  height: calc(100vh - 60px);
+  position: relative;
+  color: #333;
+}

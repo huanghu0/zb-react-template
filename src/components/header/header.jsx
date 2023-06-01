@@ -1,25 +1,59 @@
-import React,{ memo,useCallback,useEffect,useState } from 'react';
-import { useSelector } from "react-redux";
+import React,{ memo,useCallback,useEffect,useRef,useState } from 'react';
+import { useSelector,useDispatch } from "react-redux";
+import { useLocation,useNavigate  } from 'react-router-dom'; 
+import { setActiveMenu } from '@/store/permission/permissionSlice';
 import { QuestionCircleFilled,CaretUpFilled, CaretDownFilled } from '@ant-design/icons';
-import { Tooltip,Dropdown,Space  } from 'antd';
+import { Tooltip,Dropdown  } from 'antd';
 
-const Header = memo(({he,children}) => {
-  console.log(he,children,'props,children')
-  const [modeList,setModeList] = useState([]);
-  const [moduleId,setModuleId] = useState('')
-  const { module } = useSelector((state) => state.permission)
+const Header = memo(() => {
+  const [moduleList,setModuleList] = useState([]); // 
+  const dispatch = useDispatch();
+  const { module,activeMenu,menu } = useSelector((state) => state.permission)
+  const location = useLocation()
+  const navigate = useNavigate()
+
   useEffect(()=>{
-    setModeList(() => module)
+    setModuleList(() => module)
   },[module])
-  const handleClickModule =  useCallback((menu)=>{
-    setModuleId(menu.oid)
-  },[])
+
+  useEffect(()=> {
+    if(['/401','/404','/error'].includes(location.pathname)){
+      dispatch(setActiveMenu({
+        activeMenu:{}
+      }))
+    }
+  },[location])
+
+
+
+  const handleClickModule =  useCallback((m)=>{
+    let temp = []
+    menu.forEach((v) => {
+      if(v.moduleId === m.oid){
+        temp.push(v)
+      }
+    })
+    if(temp.length > 0){
+      dispatch(setActiveMenu({
+        activeMenu:temp?.[0]?.children?.[0] || {}        
+      }))
+      navigate(`${temp[0].children[0].menuUrl}`)
+    }else{
+      dispatch(setActiveMenu({
+        activeMenu:{...m,moduleId:m.oid}
+      }))
+      navigate(`${m.moduleUrl}`)
+    }
+
+  },[menu])
+
   const outItems = [{
     key:'1',
     label:(
       <span>退出</span>
     )
   }]
+
   return (<>
     <div className="header">
       <div className='logo'>
@@ -28,9 +62,9 @@ const Header = memo(({he,children}) => {
       </div>
       <nav className="nav">
        {
-        modeList.map((menu) => {
+        moduleList.map((menu) => {
           return (
-            <span className={`menu-item ${menu.oid === moduleId ? 'active-menu':''}`} key={menu.oid}  onClick={() => handleClickModule(menu)}>
+            <span className={`menu-item ${menu.oid === activeMenu.moduleId ? 'active-menu':''}`} key={menu.oid}  onClick={() => handleClickModule(menu)}>
               { menu.moduleName }
             </span>
           )

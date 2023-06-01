@@ -7,6 +7,7 @@ export const permissionSlice  = createSlice({
     module:[],
     menu:[],
     page:[],
+    activeMenu:{}
   },
   reducers: {
     permissionAction: (state,perminfo) => {
@@ -14,11 +15,14 @@ export const permissionSlice  = createSlice({
       state.menu = perminfo.payload.menu
       state.page = perminfo.payload.page
       state.module = perminfo.payload.module
+    },
+    setActiveMenu: (state,action) => {
+      state.activeMenu = action.payload.activeMenu
     }
   }
 
 })
 
-export const { permissionAction } = permissionSlice.actions
+export const { permissionAction,setActiveMenu } = permissionSlice.actions
 
 export default permissionSlice.reducer

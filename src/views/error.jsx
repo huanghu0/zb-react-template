@@ -1,8 +1,8 @@
 import React,{  memo } from "react";
 import { Empty } from "antd";
 
-const NotFound = memo(() => {
+const Error = memo(() => {
   return <Empty></Empty>    
 })
 
-export default NotFound;
+export default Error;

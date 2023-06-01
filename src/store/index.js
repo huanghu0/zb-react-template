@@ -3,8 +3,10 @@ import { persistStore, persistReducer } from "redux-persist";
 import { combineReducers } from 'redux';
 import storage from "redux-persist/lib/storage";
 import permissionSlice from './permission/permissionSlice';
+import loginSlice from './login/loginSlice';
 const reducers = combineReducers({
-  permission: permissionSlice
+  permission: permissionSlice,
+  login: loginSlice
 })
 const persistConfig = {
     key: "root", // 储存的标识名
