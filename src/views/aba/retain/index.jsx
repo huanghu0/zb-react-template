@@ -1,7 +1,7 @@
 import React,{  memo } from "react";
 
 const Retain = memo(() => {
-  return (<div className="layout-menu">
+  return (<div className="retain-page">
     Retain
   </div>)   
 })

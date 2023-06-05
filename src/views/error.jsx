@@ -2,7 +2,7 @@ import React,{  memo } from "react";
 import { Empty } from "antd";
 
 const Error = memo(() => {
-  return <Empty></Empty>    
+  return <div>error</div>   
 })
 
 export default Error;

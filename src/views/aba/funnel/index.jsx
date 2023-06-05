@@ -1,7 +1,7 @@
 import React,{  memo } from "react";
 
 const Funnel = memo(() => {
-  return (<div className="layout-menu">
+  return (<div className="funnel-page">
     Funnel
   </div>)   
 })

@@ -18,55 +18,15 @@ axios.interceptors.request.use((config) => {
 axios.interceptors.response.use(
   (res) => {
     NProgress.done();
-    return res.data;
+    console.log(res,'res')
+    return res;
   },
   (err) => {
-    if (err && err.response) {
-      switch (err.response.status) {
-        case 400:
-          console.log("请求错误");
-          break;
-        case 401:
-          console.log("未授权访问");
-          break;
-        default:
-          console.log("其他错误信息");
-      }
-    }
-    message.error("当前网络异常,请稍后重试");
     NProgress.done();
+    console.log(err,'err')
     return err;
   }
 );
-
-axios.interceptors.response.use(
-  (response) => {
-    NProgress.done();
-    // const visitUrl = window.location.href
-    // let routeUrl = visitUrl.slice(visitUrl.indexOf('#') + 1)
-    // 对响应数据做点什么
-    // console.log(response,'response')
-    // if (response.data.code === 4000009) {
-    //   let url = response.data.message
-    //   routeUrl = routeUrl.replaceAll('&', '$')
-    //   window.location.href = `${url}?refer=${window.encodeURIComponent(routeUrl)}`
-    // }
-    return response
-  },
-  (error) => {
-    console.log('get response error', error)
-    // 对响应错误做点什么
-    if (error && (error.message === '取消请求' || error.message.includes('timeout'))) {
-      if (error.message.includes('timeout')) {
-        // eslint-disable-next-line no-param-reassign
-        error.message = '数据计算资源过大，请优化修改或联系管理员！'
-      }
-      return Promise.reject(error)
-    }
-    NProgress.done();
-    return true
-  }
-)
 
 function fetchPost(url,params = {}){
   return new Promise((resolve,reject) => {

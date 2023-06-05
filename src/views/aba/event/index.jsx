@@ -1,7 +1,7 @@
 import React,{  memo } from "react";
 
 const Event = memo(() => {
-  return (<div className="layout-menu">
+  return (<div className="event-page" >
     Event
   </div>)   
 })
