@@ -57,8 +57,8 @@ const Header = memo(() => {
   return (<>
     <div className="header">
       <div className='logo'>
-        {/* <img src={require('@/assets/img/logo.png')} /> */}
-        <h1>XXXXXX管理平台</h1>
+        <img src={require('@/assets/img/logo.png')} />
+        <h1>XXXXXXXX平台</h1>
       </div>
       <nav className="nav">
        {

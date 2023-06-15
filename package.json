@@ -1,14 +1,12 @@
 {
-  "name": "react-template-js",
-  "version": "0.1.0",
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "author": "{{author}}",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
     "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^1.9.5",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "antd": "^5.5.1",
     "axios": "^1.4.0",
     "json-server": "^0.17.3",
