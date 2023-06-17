@@ -9,6 +9,7 @@ const Header = memo(() => {
   const [moduleList,setModuleList] = useState([]); // 
   const dispatch = useDispatch();
   const { module,activeMenu,menu } = useSelector((state) => state.permission)
+  const { userInfo } = useSelector((state) => state.login)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -90,7 +91,7 @@ const Header = memo(() => {
           placement="bottom"
         >
           <div className="user-dropdown">
-            <span>admin</span>
+            <span>{userInfo.userName}</span>
             <CaretUpFilled></CaretUpFilled>          
           </div>
         </Dropdown>
