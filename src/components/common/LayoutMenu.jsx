@@ -41,17 +41,17 @@ const LayoutMenu = memo(() => {
       <Header></Header>
       <div className="layout-menu-content">
         <div className="layout-menu">
-        <Menu
-          mode="inline"
-          style={{
-            width: 160,
-          }}
-          items={items}
-          openKeys={openKeys}
-          selectedKeys={[location.pathname]}
-          onClick={handleClickMenu}
-          onOpenChange={handleOpenChange}
-        />
+          <Menu
+            mode="inline"
+            style={{
+              width: 160,
+            }}
+            items={items}
+            openKeys={openKeys}
+            selectedKeys={[location.pathname]}
+            onClick={handleClickMenu}
+            onOpenChange={handleOpenChange}
+          />
         </div>
         <div className="layout-content">
           <Outlet></Outlet>
