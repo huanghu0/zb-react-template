@@ -800,8 +800,8 @@
         "jiraName": "admin",
         "departmentId": 1668696,
         "identity": 4,
-        "watermarkUrl": "http://172.31.68.35:9066/bd-bi-manager/user/readWatermark/180920.png",
-        "deptFullName": "业务支持中心集团分析部/技术研发部/业务研发组"
+        "watermarkUrl": "",
+        "deptFullName": ""
       }                
   }
 }
